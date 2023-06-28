@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.header {
+  position: fixed;
+  height: 80px;
+  width: 100%;
+  z-index: 100;
+  padding: 0 20px;
+}
+
+.nav-link,
+.nav-logo,
+.button {
+  color: black;
+}
+
+.home {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-color: beige;
+}
+
+.button {
+  padding: 6px 24px;
+  border: 2px solid #fff;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+a {
+  text-decoration: none;
+}
+
+.nav-logo {
+  font-size: 25px;
+}
+
+.nav-link:hover {
+  color: #d9d9d9;
+}
+
+.nav-item {
+  column-gap: 25px;
+}
+
+.nav,
+.nav-item {
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-container {
+  position: absolute;
+  max-width: 320px;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  z-index: 101;
+  transform: translate(-50%, -50%) scale(1.2);
+  background-color: cadetblue;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease-out;
+}
+
+.home.show::before {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.home::before {
+  content: "";
+  pointer-events: none;
+  transition: all 0.5s ease-out;
+  z-index: 100;
+  opacity: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.home.show .form-container {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: auto;
+}
+
+.close_form {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: black;
+  font-size: 22px;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.form-container h2 {
+  font-size: 22px;
+  color: black;
+  text-align: center;
+}
+
+.form-container.active .form-signup {
+  display: block;
+}
+
+.form-container.active .form-login {
+  display: none;
+}
+
+.input-box {
+  position: relative;
+  margin-top: 30px;
+  width: 100%;
+  height: 40px;
+}
+
+.input-box input {
+  height: 100%;
+  width: 100%;
+  border: none;
+  padding: 0 30px;
+  outline: none;
+  color: #333;
+  border-bottom: 1.5px solid #aaaaaa;
+  transition: all 0.2s ease;
+}
+
+.input-box input:focus ~ i.email,
+.input-box input:focus ~ i.password {
+  color: antiquewhite;
+}
+
+.input-box input:focus {
+  border-color: antiquewhite;
+}
+
+.input-box i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+}
+
+.input-box i.email,
+.input-box i.password {
+  left: 0;
+  color: #707070;
+}
+
+.input-box i.pw_hide {
+  right: 0;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.option-field {
+  margin-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.form-container a {
+  color: bisque;
+  font-size: 12px;
+}
+
+.form-container a:hover {
+  text-decoration: underline;
+}
+
+.check-box {
+  display: flex;
+  white-space: nowrap;
+  column-gap: 8px;
+  font-size: 12px;
+}
+
+.check-box input {
+  accent-color: #7d2ae8;
+}
+
+.check-box label {
+  color: black;
+  font-size: 12px;
+  user-select: none;
+  cursor: pointer;
+}
+
+.form-container .button {
+  background-color: #707070;
+  margin-top: 30px;
+  width: 100%;
+  padding: 10px 0;
+  border-radius: 10px;
+}
+
+.account {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.form-signup {
+  display: none;
+}
